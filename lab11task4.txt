@@ -1,0 +1,37 @@
+package task4lab11;
+
+public class genericClass<T> {
+    T username ;
+    T password ;
+
+    genericClass(T user , T pass){
+        this.username = user;
+        this.password = pass;
+    }
+
+    public void validate(String username ,String password){
+        if(this.username.equals(username) && this.password.equals(password)){
+            System.out.println("Login successful");
+        }
+        else if(!this.username.equals(username)){
+            System.out.println("incorrect username");
+
+        }
+        else if(!this.password.equals(password)){
+            System.out.println("incorrect password");
+
+        }
+        else{
+            System.out.println("Login failed");
+        }
+    }
+
+}
+class Main{
+    public static void main(String[] args) {
+        genericClass<String> g = new genericClass<>("ayesha.123","okay123");
+        g.validate("ayesha.123","okay123");
+        g.validate("ayesha.123","no123");
+
+    }
+}

@@ -1,0 +1,23 @@
+package task3lab11;
+
+public class MaxElement {
+    public static <T extends Comparable<T>> T getMax(T[] arr) {
+        T max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if(arr[i].compareTo(max) > 0){
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+}
+
+class main{
+    public static void main(String[] args) {
+        MaxElement me = new MaxElement();
+        Integer[] arr = {3,5,6,0,2,3,99};
+        String[] arr2 ={"apple","Banana","Mango","litchi"};
+        System.out.println("Max element "+me.getMax(arr));
+        System.out.println("Max element "+me.getMax(arr2));
+    }
+}

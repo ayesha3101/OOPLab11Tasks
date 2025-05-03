@@ -1,0 +1,43 @@
+package task2lab11;
+import java.io.*;
+
+public class MyQualification {
+    public static void main(String[] args) {
+
+
+        File f1 = new File("C:\\Users\\ayesh\\Desktop\\ayesha.txt");
+
+        try {
+            if (f1.createNewFile()) {
+                System.out.println("File created successfully");
+                BufferedWriter b = new BufferedWriter(new FileWriter(f1));
+                b.write("Ayesha Naveed\n");
+                b.write("Olevel: private\n");
+                b.write("Alevel: private\n");
+                b.write("Bachelors in Software Engineering (Ongoing)");
+                b.close();
+                System.out.println("File written successfully");
+            } else {
+                System.out.println("File creation failed");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try{
+            BufferedReader b = new BufferedReader(new FileReader(f1));
+            String in;
+            while((in=b.readLine())!=null){
+                System.out.println(in);
+
+            }
+            System.out.println("File read successfully");
+          b.close();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+
+
+    }
+}

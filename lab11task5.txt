@@ -1,0 +1,51 @@
+package task5lab11;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+
+public class task5lab11 {
+        public static void main(String[] args) {
+        File f = new File("C:\\Users\\ayesh\\Desktop\\Confidential.txt");
+    try
+        {
+            if (f.createNewFile()) {
+                System.out.println("File created");
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter your designation");
+            String designation = scanner.nextLine();
+            if(designation.equalsIgnoreCase("student")){
+                f.setReadable(true);
+                f.setExecutable(false);
+                f.setWritable(false);
+
+            }
+            else if(designation.equalsIgnoreCase("teacher")){
+                f.setReadable(true);
+                f.setWritable(true);
+                f.setExecutable(true);
+
+
+            }
+                System.out.println("Showing access status......");
+                System.out.println("Exceution "+ f.canExecute());
+                System.out.println("Read "+f.canRead());
+                System.out.println("Write "+f.canWrite());
+            }
+        }
+    catch(
+        IOException E)
+
+        {
+            System.out.println("Error occurred");
+        }
+
+
+
+
+
+    }
+
+
+
+}
